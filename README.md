@@ -1,2 +1,3 @@
 # Nodejs_practice
-In this project, im getting my hands on nodejs and several db's like graphql
+Basically this one is simple one, 
+Here i have user core node.js without express.js/bodyParser and created user-input output and much more.
