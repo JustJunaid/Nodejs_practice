@@ -1,0 +1,23 @@
+{
+  "name": "nodejs_max",
+  "version": "1.0.0",
+  "description": "Basic Project consisting of IO operations",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustJunaid/Nodejs_practice.git"
+  },
+  "author": "Junaid Choudhary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JustJunaid/Nodejs_practice/issues"
+  },
+  "homepage": "https://github.com/JustJunaid/Nodejs_practice#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
