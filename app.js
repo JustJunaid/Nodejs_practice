@@ -1,31 +1,15 @@
-const http = require('http')
+const express = require('express')
+const app = express()
 
-const rq = http.createServer((req, res) => {
-    if (req.url === '/') {
-        res.write("<html><body><h1>Hello from Home Page.</h1><form method='POST' action='/display_name'><input type='text' name='username' placeholder='Enter username' required><button type='submit'>Add My Name</button></form></body></html>")
-        res.end()
-    }
-    else if (req.url === '/users') {
-        const names = ['Abid', 'Junaid', 'Naved', 'Suhail']
-        res.write("<html><body><ul>")
-        for (name of names) {
-            res.write("<li>")
-            res.write(name)
-            res.write("</li>")
-        }
-        res.write("</ul></body></html>")
-        res.end()
-    }
-    else if (req.url === '/display_name') {
-        req.on('data', chunk => {
-            console.log(chunk.toString().split('=')[1])
-            res.write('<html><body>')
-            res.write('<h3>Your name is: </h3>')
-            res.write(chunk.toString().split('=')[1])
-            res.write('</body></html>')
-            res.end()
-        })
-    }
+app.use('/home', (req, res, next) => {
+    console.log('This one is from first middleware')
+    res.send('This is from home Route')
+    next()
 })
 
-rq.listen(3000)
+app.use('/', (req, res, next) => {
+    console.log('This one is from second middleware')
+    res.send('<h1>This one is from second middleware</h1>')
+})
+
+app.listen(3000)
